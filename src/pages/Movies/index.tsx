@@ -9,6 +9,7 @@ import { Modal } from "../../components/Modal";
 import { useGetMovieIdStore } from "../../store/useGetMovieId.store";
 import { useGetMovieById } from "../../services/getMovieById.service";
 import { PaginationButtons } from "../../components/PaginationButtons";
+import { moneyFormat } from "../../utils/MoneyFormat";
 
 export const Movies = () => {
   const [page, setPage] = useState(1);
@@ -47,6 +48,9 @@ export const Movies = () => {
         title={movieByIdData?.title || ""}
         description={movieByIdData?.overview || ""}
         srcImage={movieByIdData?.poster_path || ""}
+        release_date={movieByIdData?.release_date || ""}
+        revenue={moneyFormat(movieByIdData?.revenue || 0)}
+        vote_average={movieByIdData?.vote_average || 0}
         isOpen={isOpen}
         onClose={onClose}
         isLoading={movieByIdLoading}

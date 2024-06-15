@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   ModalBody,
   ModalCloseButton,
@@ -11,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { Modal as ChakraModal } from "@chakra-ui/react";
 import { Image } from "../Image";
+import { MovieDetail } from "../MovieDetail";
 
 interface Props {
   isOpen: boolean;
@@ -21,6 +23,9 @@ interface Props {
   buttonTitle: string;
   description: string;
   srcImage: string;
+  release_date: string;
+  revenue: number | string;
+  vote_average: number | string;
 }
 export const Modal = ({
   isOpen,
@@ -31,6 +36,9 @@ export const Modal = ({
   handleButtonClick,
   description,
   srcImage,
+  release_date,
+  revenue,
+  vote_average,
 }: Props) => {
   return (
     <>
@@ -45,10 +53,24 @@ export const Modal = ({
             {isLoading ? <SkeletonText /> : <Text>{title}</Text>}
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody pb={6}>
+          <ModalBody pb={6} display={"flex"} flexDirection={"column"} gap={5}>
             <Image alt={title ? title : ""} srcImage={srcImage} />
 
             {isLoading ? <SkeletonText /> : <Text>{description}</Text>}
+
+            {isLoading ? (
+              <SkeletonText />
+            ) : (
+              <Box
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"space-between"}
+              >
+                <MovieDetail title="Release Date:" description={release_date} />
+                <MovieDetail title="Revenue:" description={revenue} />
+                <MovieDetail title="Vote Average" description={vote_average} />
+              </Box>
+            )}
           </ModalBody>
 
           <ModalFooter>
