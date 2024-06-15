@@ -1,5 +1,7 @@
+import { DarkModeButtons } from "../../components/DarkModeButtons";
+
 const Home = () => {
-  return <div>Home</div>;
+  return <DarkModeButtons />;
 };
 
 export default Home;
