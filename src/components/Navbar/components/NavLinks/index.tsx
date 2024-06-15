@@ -1,24 +1,26 @@
 import { Box, Button } from "@chakra-ui/react";
+import { TFunction } from "i18next";
 
 interface Props {
   navigate: (path: string) => void;
+  t: TFunction;
 }
 
-export const NavLinks = ({ navigate }: Props) => {
+export const NavLinks = ({ navigate, t }: Props) => {
   const links = [
     {
       id: 1,
-      name: "Home",
+      name: t("HOME_TITLE"),
       path: "/home",
     },
     {
       id: 2,
-      name: "Movies",
+      name: t("MOVIES_TITLE"),
       path: "/movies",
     },
     {
       id: 3,
-      name: "Series",
+      name: t("SERIES_TITLE"),
       path: "/series",
     },
   ];

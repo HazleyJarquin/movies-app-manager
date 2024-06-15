@@ -3,9 +3,9 @@ import { API_BASE_URL, API_KEY } from "../shared/apiConfig";
 import axios from "axios";
 import { IMoviesByIdResponse } from "../interfaces";
 
-const getMovieById = async (id: number) => {
+const getMovieById = async (id: number, lng: string) => {
   const response = await axios.get(
-    `${API_BASE_URL}/movie/${id}?api_key=${API_KEY}`,
+    `${API_BASE_URL}/movie/${id}?language=${lng}&api_key=${API_KEY}`,
     {
       method: "GET",
       headers: {
@@ -15,11 +15,11 @@ const getMovieById = async (id: number) => {
   );
   return response?.data;
 };
-export const useGetMovieById = (id: number) => {
-  return useQuery<IMoviesByIdResponse>(["getMovieById", id], async () => {
+export const useGetMovieById = (id: number, lng: string) => {
+  return useQuery<IMoviesByIdResponse>(["getMovieById", id, lng], async () => {
     if (!id) {
       return {};
     }
-    return getMovieById(id);
+    return getMovieById(id, lng);
   });
 };

@@ -10,15 +10,23 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { Image } from "../Image";
+import { TFunction } from "i18next";
 
 interface Props {
   srcImage: string;
   title: string;
   description: string;
   buttonDetail: () => void;
+  t: TFunction;
 }
 
-export const Card = ({ description, srcImage, title, buttonDetail }: Props) => {
+export const Card = ({
+  description,
+  srcImage,
+  title,
+  buttonDetail,
+  t,
+}: Props) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -50,7 +58,7 @@ export const Card = ({ description, srcImage, title, buttonDetail }: Props) => {
       <Divider />
       <CardFooter display={"flex"} justifyContent={"center"} py="3" px="4">
         <Button onClick={buttonDetail} variant="solid" colorScheme="blue">
-          View Detail
+          {t("VIEW_DETAILS_TEXT")}
         </Button>
       </CardFooter>
     </ChakraCard>

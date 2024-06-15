@@ -2,9 +2,12 @@ import { Box, Heading } from "@chakra-ui/react";
 import { DarkModeButtons } from "../DarkModeButtons";
 import { useNavigate } from "react-router-dom";
 import { NavLinks } from "./components/NavLinks";
+import { ChangeLanguageButtons } from "../ChangeLanguageButtons";
+import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   return (
     <Box
       width={"100%"}
@@ -25,17 +28,19 @@ export const Navbar = () => {
           M-A-M
         </Heading>
 
-        <Box display={{ base: "flex", md: "none" }}>
+        <Box display={{ base: "flex", md: "none" }} gap={3}>
           <DarkModeButtons />
+          <ChangeLanguageButtons />
         </Box>
       </Box>
 
       <Box>
-        <NavLinks navigate={navigate} />
+        <NavLinks t={t} navigate={navigate} />
       </Box>
 
-      <Box display={{ base: "none", md: "flex" }}>
+      <Box display={{ base: "none", md: "flex" }} gap={3}>
         <DarkModeButtons />
+        <ChangeLanguageButtons />
       </Box>
     </Box>
   );

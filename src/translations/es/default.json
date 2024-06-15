@@ -2,5 +2,13 @@
   "COLOR_MODE_BUTTON_LIGHT": "Claro",
   "COLOR_MODE_BUTTON_DARK": "Oscuro",
   "NEXT_TEXT": "Siguiente",
-  "PREV_TEXT": "Anterior"
+  "PREV_TEXT": "Anterior",
+  "MOVIES_TITLE": "Películas",
+  "HOME_TITLE": "Inicio",
+  "SERIES_TITLE": "Series",
+  "VIEW_DETAILS_TEXT": "Ver detalles",
+  "RELEASE_DATE_TEXT": "Lanzamiento",
+  "RATING_TEXT": "Calificación",
+  "REVENUE_TEXT": "Ganancia",
+  "GO_MOVIE_PAGE": "Página película"
 }

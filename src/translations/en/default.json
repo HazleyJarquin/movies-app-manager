@@ -2,5 +2,13 @@
   "COLOR_MODE_BUTTON_LIGHT": "Light",
   "COLOR_MODE_BUTTON_DARK": "Dark",
   "NEXT_TEXT": "Next",
-  "PREV_TEXT": "Previous"
+  "PREV_TEXT": "Previous",
+  "MOVIES_TITLE": "Movies",
+  "HOME_TITLE": "Home",
+  "SERIES_TITLE": "Series",
+  "VIEW_DETAILS_TEXT": "View Details",
+  "RELEASE_DATE_TEXT": "Release Date",
+  "RATING_TEXT": "Rating",
+  "REVENUE_TEXT": "Revenue",
+  "GO_MOVIE_PAGE": "Go to Movie Page"
 }

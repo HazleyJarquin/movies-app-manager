@@ -10,18 +10,24 @@ import { useGetMovieIdStore } from "../../store/useGetMovieId.store";
 import { useGetMovieById } from "../../services/getMovieById.service";
 import { PaginationButtons } from "../../components/PaginationButtons";
 import { moneyFormat } from "../../utils/MoneyFormat";
+import { useLanguage } from "../../context/I18nProvider";
 
 export const Movies = () => {
   const [page, setPage] = useState(1);
   const { movieId, setMovieId } = useGetMovieIdStore();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
-  const { data: movieByIdData, isLoading: movieByIdLoading } =
-    useGetMovieById(movieId);
+  const { data: movieByIdData, isLoading: movieByIdLoading } = useGetMovieById(
+    movieId,
+    language
+  );
 
-  const { data: movieListData, isLoading: movieListLoading } =
-    useGetMovieList(page);
+  const { data: movieListData, isLoading: movieListLoading } = useGetMovieList(
+    page,
+    language
+  );
 
   const handleNextPage = () => {
     setPage((prev) => prev + 1);
@@ -45,6 +51,7 @@ export const Movies = () => {
   return (
     <Box w={"100%"}>
       <Modal
+        t={t}
         title={movieByIdData?.title || ""}
         description={movieByIdData?.overview || ""}
         srcImage={movieByIdData?.poster_path || ""}
@@ -54,7 +61,7 @@ export const Movies = () => {
         isOpen={isOpen}
         onClose={onClose}
         isLoading={movieByIdLoading}
-        buttonTitle="Go Home Page"
+        buttonTitle={t("GO_MOVIE_PAGE")}
         handleButtonClick={() =>
           handleButtonClick(movieByIdData?.homepage || "")
         }
@@ -72,6 +79,7 @@ export const Movies = () => {
           {movieListData?.results?.map((movie: IMoviesListResponse) => (
             <GridItem key={movie.id}>
               <Card
+                t={t}
                 title={movie.title}
                 description={movie.overview}
                 srcImage={movie.poster_path}

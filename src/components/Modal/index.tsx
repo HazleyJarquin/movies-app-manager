@@ -13,8 +13,10 @@ import {
 import { Modal as ChakraModal } from "@chakra-ui/react";
 import { Image } from "../Image";
 import { MovieDetail } from "../MovieDetail";
+import { TFunction } from "i18next";
 
 interface Props {
+  t: TFunction;
   isOpen: boolean;
   onClose: () => void;
   title: string;
@@ -28,6 +30,7 @@ interface Props {
   vote_average: number | string;
 }
 export const Modal = ({
+  t,
   isOpen,
   onClose,
   title,
@@ -56,7 +59,11 @@ export const Modal = ({
           <ModalBody pb={6} display={"flex"} flexDirection={"column"} gap={5}>
             <Image alt={title ? title : ""} srcImage={srcImage} />
 
-            {isLoading ? <SkeletonText /> : <Text>{description}</Text>}
+            {isLoading ? (
+              <SkeletonText />
+            ) : (
+              <Text noOfLines={6}>{description}</Text>
+            )}
 
             {isLoading ? (
               <SkeletonText />
@@ -66,9 +73,15 @@ export const Modal = ({
                 display={"flex"}
                 justifyContent={"space-between"}
               >
-                <MovieDetail title="Release Date:" description={release_date} />
-                <MovieDetail title="Revenue:" description={revenue} />
-                <MovieDetail title="Vote Average" description={vote_average} />
+                <MovieDetail
+                  title={t("RELEASE_DATE_TEXT")}
+                  description={release_date}
+                />
+                <MovieDetail title={t("REVENUE_TEXT")} description={revenue} />
+                <MovieDetail
+                  title={t("RATING_TEXT")}
+                  description={vote_average}
+                />
               </Box>
             )}
           </ModalBody>
