@@ -8,11 +8,16 @@ export const NavLinks = ({ navigate }: Props) => {
   const links = [
     {
       id: 1,
+      name: "Home",
+      path: "/home",
+    },
+    {
+      id: 2,
       name: "Movies",
       path: "/movies",
     },
     {
-      id: 2,
+      id: 3,
       name: "Series",
       path: "/series",
     },

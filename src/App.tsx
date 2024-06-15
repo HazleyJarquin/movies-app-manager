@@ -3,6 +3,7 @@ import Mainlayout from "./components/Mainlayout";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Suspense } from "react";
+import { Movies } from "./pages/Movies";
 
 function App() {
   return (
@@ -15,6 +16,15 @@ function App() {
           element={
             <Suspense fallback={<div>Cargando...</div>}>
               <Home />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/movies"
+          element={
+            <Suspense fallback={<div>Cargando...</div>}>
+              <Movies />
             </Suspense>
           }
         />

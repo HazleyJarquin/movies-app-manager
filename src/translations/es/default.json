@@ -1,4 +1,6 @@
 {
   "COLOR_MODE_BUTTON_LIGHT": "Claro",
-  "COLOR_MODE_BUTTON_DARK": "Oscuro"
+  "COLOR_MODE_BUTTON_DARK": "Oscuro",
+  "NEXT_TEXT": "Siguiente",
+  "PREV_TEXT": "Anterior"
 }
