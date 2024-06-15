@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { API_BASE_URL, API_KEY } from "../shared/apiConfig";
 import axios from "axios";
+import { IMoviesByIdResponse } from "../interfaces";
 
 const getMovieById = async (id: number) => {
   const response = await axios.get(
@@ -15,7 +16,7 @@ const getMovieById = async (id: number) => {
   return response?.data;
 };
 export const useGetMovieById = (id: number) => {
-  return useQuery(["getMovieById", id], async () => {
+  return useQuery<IMoviesByIdResponse>(["getMovieById", id], async () => {
     if (!id) {
       return {};
     }

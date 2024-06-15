@@ -8,20 +8,35 @@ export const Navbar = () => {
   return (
     <Box
       width={"100%"}
-      height={"10vh"}
+      height={{ base: "auto", md: "10vh" }}
       display={"flex"}
+      flexDirection={{ base: "column", md: "row" }}
       justifyContent={"space-between"}
       alignItems={"center"}
       padding={"0px 20px 0px 20px"}
       borderBottom={"1px solid #ccc"}
     >
-      <Heading onClick={() => navigate("/home")} cursor={"pointer"}>
-        M-A-M
-      </Heading>
+      <Box
+        w={{ base: "100%", md: "auto" }}
+        display={"flex"}
+        justifyContent={"space-between"}
+      >
+        <Heading onClick={() => navigate("/home")} cursor={"pointer"}>
+          M-A-M
+        </Heading>
 
-      <NavLinks navigate={navigate} />
+        <Box display={{ base: "flex", md: "none" }}>
+          <DarkModeButtons />
+        </Box>
+      </Box>
 
-      <DarkModeButtons />
+      <Box>
+        <NavLinks navigate={navigate} />
+      </Box>
+
+      <Box display={{ base: "none", md: "flex" }}>
+        <DarkModeButtons />
+      </Box>
     </Box>
   );
 };

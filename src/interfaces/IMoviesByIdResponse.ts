@@ -1,4 +1,4 @@
-export interface IMoviesById {
+export interface IMoviesByIdResponse {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: BelongsToCollection;

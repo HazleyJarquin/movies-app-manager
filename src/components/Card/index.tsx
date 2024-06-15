@@ -7,23 +7,20 @@ import {
   Heading,
   Text,
   Divider,
-  Image,
   useColorMode,
 } from "@chakra-ui/react";
+import { Image } from "../Image";
 
 interface Props {
   srcImage: string;
   title: string;
   description: string;
+  buttonDetail: () => void;
 }
 
-export const Card = ({ description, srcImage, title }: Props) => {
+export const Card = ({ description, srcImage, title, buttonDetail }: Props) => {
   const { colorMode } = useColorMode();
 
-  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.src =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
-  };
   return (
     <ChakraCard
       background={colorMode === "light" ? "#1a202c" : "#ffffff"}
@@ -35,15 +32,7 @@ export const Card = ({ description, srcImage, title }: Props) => {
       flexDirection="column"
     >
       <CardBody flex="1">
-        <Image
-          w={"100%"}
-          src={srcImage}
-          alt={title}
-          borderRadius="lg"
-          height="160px"
-          objectFit="fill"
-          onError={handleImageError}
-        />
+        <Image srcImage={srcImage} alt={title} />
         <Stack mt="6" spacing="3" px="4">
           <Heading size="md">{title}</Heading>
 
@@ -60,7 +49,7 @@ export const Card = ({ description, srcImage, title }: Props) => {
       </CardBody>
       <Divider />
       <CardFooter display={"flex"} justifyContent={"center"} py="3" px="4">
-        <Button variant="solid" colorScheme="blue">
+        <Button onClick={buttonDetail} variant="solid" colorScheme="blue">
           View Detail
         </Button>
       </CardFooter>
