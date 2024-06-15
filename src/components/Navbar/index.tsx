@@ -22,7 +22,7 @@ export const Navbar = () => {
         justifyContent={"space-between"}
       >
         <Heading onClick={() => navigate("/home")} cursor={"pointer"}>
-          M-A-M
+          Test
         </Heading>
 
         <Box display={{ base: "flex", md: "none" }}>
