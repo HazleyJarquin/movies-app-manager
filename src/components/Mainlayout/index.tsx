@@ -1,17 +1,21 @@
 import { Box } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
+import { Navbar } from "../Navbar";
 
 const Mainlayout = () => {
   return (
-    <Box display={"flex"} width={"100%"} height={"100vh"}>
-      <Box></Box>
+    <Box
+      width={"100%"}
+      height={"100vh"}
+      display={"flex"}
+      flexDirection={"column"}
+    >
+      <Navbar />
       <Box
-      // style={{
-      //   width: "-webkit-fill-available",
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   padding: "1rem 2.5rem",
-      // }}
+        w={"100%"}
+        h={"90vh"}
+        overflow={"auto"}
+        padding={"20px 20px 0px 20px"}
       >
         <Outlet />
       </Box>
